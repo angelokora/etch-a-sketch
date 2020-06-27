@@ -11,15 +11,12 @@
 
     </div>
     <div class="buttons">
-        <button>Clear Screen</button>
+        <button onclick="clearScreen()">Clear Screen</button>
         <button onclick="addDivs(prompt('What number of blocks do you want per side?'));">Resize block number</button>
     </div>
     <script>
         const container = document.querySelector('#screen');
         addDivs(35)
-        
-        
-
         function addDivs(number)
         {
             container.innerHTML="";
@@ -38,6 +35,14 @@
                 };
                 // Add the div to the dom
                 container.appendChild(div);
+            }
+        }
+        function clearScreen()
+        {
+            let blocks = document.getElementsByClassName('block');
+            for (let i = 0; i < blocks.length; i++)
+            {
+                blocks[i].classList.remove('black');
             }
         }
     </script>
