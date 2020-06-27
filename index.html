@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Etch-A-Sketch</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="screen">
+
+    </div>
+    <div class="buttons">
+        <button>Clear Screen</button>
+        <button onclick="addDivs(prompt('What number of blocks do you want per side?'));">Resize block number</button>
+    </div>
+    <script>
+        const container = document.querySelector('#screen');
+        addDivs(35)
+        
+        
+
+        function addDivs(number)
+        {
+            container.innerHTML="";
+            let size=560/number;
+            
+            for (let i = 1; i <= (number*number); i++)
+            {
+                //Create div with computed size based on the number provided by the user
+                let div = document.createElement('div')
+                div.setAttribute('style', 'width:'+size+'px;height:'+size+'px')
+                div.classList.add('block');
+                //Add Event listener on the div
+                div.onmouseover = function()
+                {
+                    div.classList.add('black');
+                };
+                // Add the div to the dom
+                container.appendChild(div);
+            }
+        }
+    </script>
+</body>
+</html>
